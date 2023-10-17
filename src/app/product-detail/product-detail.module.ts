@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ProductComponent } from './products.component';
-import { ProductRoutingModule } from './products-routing.module';
+import { ProductDetailComponent } from './product-detail.component';
+import { ProductDetailRoutingModule } from './product-detail-routing.module';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -17,23 +17,22 @@ import { RatingModule } from 'primeng/rating';
 import { OrderListModule } from 'primeng/orderlist';
 import { DataViewModule } from 'primeng/dataview';
 import { PickListModule } from 'primeng/picklist';
-import { EllipsisPipe } from './pipes/ellipsis.pipe';
+import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { HotDetalComponent } from './components/hot-deal.component';
+import { ImageModule } from 'primeng/image';
 
 @NgModule({
     imports: [
         CommonModule,
+        ProductDetailRoutingModule,
         FormsModule,
-        ProductRoutingModule,
-        DataViewModule,
-        PickListModule,
-        OrderListModule,
-        InputTextModule,
-        DropdownModule,
-        RatingModule,
-        ButtonModule,
+        RouterModule,
         AsyncPipe,
-        EllipsisPipe,
+        ButtonModule,
+        RatingModule,
+        ImageModule,
     ],
-    declarations: [ProductComponent],
+    declarations: [ProductDetailComponent, HotDetalComponent],
 })
-export class ProductsModule {}
+export class ProductDetailModule {}
