@@ -40,9 +40,13 @@
             <span>Login</span>
         </button>
 
-        <a class="p-link layout-topbar-button">
+        <a class="p-link layout-topbar-button" (click)="showCart = !showCart">
             <i class="pi pi-shopping-cart text-2xl" pBadge value="2"></i>
             <span>Cart</span>
         </a>
     </div>
 </div>
+
+<p-sidebar [(visible)]="showCart" position="right" [baseZIndex]="10000">
+    <summary-cart></summary-cart>
+</p-sidebar>

@@ -15,8 +15,9 @@ import { RouterModule } from '@angular/router';
 import { AppTopBarComponent } from './app.topbar.component';
 import { AppFooterComponent } from './app.footer.component';
 import { AppConfigModule } from './config/config.module';
-import { AppSidebarComponent } from "./app.sidebar.component";
-import { AppLayoutComponent } from "./app.layout.component";
+import { AppSidebarComponent } from './app.sidebar.component';
+import { AppLayoutComponent } from './app.layout.component';
+import { SummaryCartComponent } from './summary-cart.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import { AppLayoutComponent } from "./app.layout.component";
         AppMenuComponent,
         AppSidebarComponent,
         AppLayoutComponent,
+        SummaryCartComponent,
     ],
     imports: [
         BrowserModule,
@@ -39,8 +41,8 @@ import { AppLayoutComponent } from "./app.layout.component";
         InputSwitchModule,
         RippleModule,
         RouterModule,
-        AppConfigModule
+        AppConfigModule,
     ],
-    exports: [AppLayoutComponent]
+    exports: [AppLayoutComponent],
 })
-export class AppLayoutModule { }
+export class AppLayoutModule {}
