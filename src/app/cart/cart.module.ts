@@ -12,6 +12,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { TotalPricePipe } from './pipes/total-price.pipe';
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
+import { BreadcrubmComponent } from '../shared/components/breadcrumb/breadcrumb.component';
 
 @NgModule({
     imports: [
@@ -25,6 +26,7 @@ import { OrderSummaryComponent } from './components/order-summary/order-summary.
         AsyncPipe,
         SidebarModule,
         InputNumberModule,
+        BreadcrubmComponent,
     ],
     declarations: [
         CartComponent,

@@ -8,6 +8,7 @@ import { RatingModule } from 'primeng/rating';
 import { RouterModule } from '@angular/router';
 import { HotDetalComponent } from './components/hot-deal.component';
 import { TooltipModule } from 'primeng/tooltip';
+import { BreadcrubmComponent } from '../shared/components/breadcrumb/breadcrumb.component';
 
 @NgModule({
     imports: [
@@ -19,6 +20,7 @@ import { TooltipModule } from 'primeng/tooltip';
         ButtonModule,
         RatingModule,
         TooltipModule,
+        BreadcrubmComponent,
     ],
     declarations: [ProductDetailComponent, HotDetalComponent],
 })
