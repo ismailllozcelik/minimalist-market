@@ -12,7 +12,9 @@
                     {{ item.title }}
                 </span>
                 <div>Quantity :{{ item.quantity }}</div>
-                <div class="text-primary font-bold">$ {{ item.price }}</div>
+                <div class="text-primary font-bold">
+                    $ {{ item.price * item.quantity }}
+                </div>
             </div>
         </div>
         <hr class="w-full" />

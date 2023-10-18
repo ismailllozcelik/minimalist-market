@@ -1,0 +1,16 @@
+/* Kapsamlı bir seçici kullanarak tüm input alanlarındaki butonları gizle */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox için stil ayarlaması (isteğe bağlı) */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+:host ::ng-deep .product-image {
+    min-height: 100px;
+    max-height: 120px;
+}

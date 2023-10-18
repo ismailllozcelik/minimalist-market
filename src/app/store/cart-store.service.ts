@@ -30,7 +30,7 @@ export class CartStoreService {
         this.myCartList.next(updatedList);
     }
 
-    removeItem(product: Product) {
+    removeFromCart(product: Product) {
         const updatedList = this.myCartList.value.filter(
             (item) => item.id !== product.id
         );

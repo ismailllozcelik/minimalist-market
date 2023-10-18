@@ -18,6 +18,7 @@ import { OrderListModule } from 'primeng/orderlist';
 import { DataViewModule } from 'primeng/dataview';
 import { PickListModule } from 'primeng/picklist';
 import { SidebarModule } from 'primeng/sidebar';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
     imports: [
@@ -33,6 +34,7 @@ import { SidebarModule } from 'primeng/sidebar';
         ButtonModule,
         AsyncPipe,
         SidebarModule,
+        InputNumberModule,
     ],
     declarations: [CartComponent],
 })

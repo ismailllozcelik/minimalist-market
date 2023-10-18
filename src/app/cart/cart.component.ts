@@ -19,14 +19,7 @@ import { CartStoreService } from '../store/cart-store.service';
 
 @Component({
     templateUrl: './cart.component.html',
-    styles: [
-        `
-            :host ::ng-deep .product-image {
-                min-height: 150px;
-                max-height: 200px;
-            }
-        `,
-    ],
+    styleUrls: ['./cart.component.scss'],
     providers: [MessageService, ConfirmationService],
 })
 export class CartComponent implements OnInit {
@@ -40,5 +33,19 @@ export class CartComponent implements OnInit {
             console.log('item', products);
             this.myCartList = products;
         });
+    }
+
+    increment(product: Product) {
+        product.quantity++;
+        this.cartService.updateQuantity(product, product.quantity);
+    }
+
+    decrement(product: Product) {
+        if (product.quantity > 0) product.quantity--;
+        this.cartService.updateQuantity(product, product.quantity);
+    }
+
+    removeProduct(product: Product) {
+        this.cartService.removeFromCart(product);
     }
 }

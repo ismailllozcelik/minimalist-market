@@ -29,7 +29,9 @@ export class AppTopBarComponent implements OnInit {
 
     ngOnInit() {
         this.cartService.currentCart.subscribe((products) => {
-            this.basketCount = products.length;
+            this.basketCount = products
+                .map((item) => item.quantity)
+                .reduce((prev, next) => prev + next, 0);
         });
     }
 }
