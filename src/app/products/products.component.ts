@@ -1,17 +1,6 @@
-import {
-    Component,
-    OnInit,
-    ViewChild,
-    ElementRef,
-    inject,
-} from '@angular/core';
-import { Customer, Representative } from 'src/app/demo/api/customer';
-import { CustomerService } from 'src/app/demo/service/customer.service';
-import { Table } from 'primeng/table';
-import { MessageService, ConfirmationService } from 'primeng/api';
+import { Component, OnInit, inject } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import { DataView } from 'primeng/dataview';
-import { AsyncPipe } from '@angular/common';
 import { Product } from './models/product.model';
 import { Observable, scheduled, asyncScheduler, map } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -30,7 +19,7 @@ import { User } from '../shared/models/user.model';
             }
         `,
     ],
-    providers: [MessageService, ConfirmationService, ProductService],
+    providers: [ProductService],
 })
 export class ProductComponent implements OnInit {
     products$: Observable<Product[] | null> = scheduled([], asyncScheduler);
