@@ -9,7 +9,6 @@ export class CartStoreService {
 
     addToCart(product: Product) {
         // control by id for added product via myCartList
-        console.log('this.myCartList', this.myCartList.value);
         const item = this.myCartList.value.find(
             (item) => item.id === product.id
         );

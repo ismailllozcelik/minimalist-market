@@ -17,6 +17,8 @@ import { Observable, scheduled, asyncScheduler, map } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from './services/product.service';
 import { CartStoreService } from '../store/cart-store.service';
+import { UserService } from '../store/user.service';
+import { User } from '../shared/models/user.model';
 
 @Component({
     templateUrl: './products.component.html',
@@ -35,6 +37,8 @@ export class ProductComponent implements OnInit {
     private readonly route: ActivatedRoute = inject(ActivatedRoute);
     private readonly router = inject(Router);
     private cartService = inject(CartStoreService);
+    private userService = inject(UserService);
+    userData: User;
 
     sortOptions: SelectItem[] = [];
 
@@ -49,8 +53,8 @@ export class ProductComponent implements OnInit {
             map((data: any) => data.products)
         );
 
-        this.products$.subscribe((item) => {
-            console.log('products', item);
+        this.userService.user$.subscribe((user) => {
+            this.userData = user;
         });
 
         this.sortOptions = [
@@ -81,8 +85,5 @@ export class ProductComponent implements OnInit {
 
     addToCart(product: Product) {
         this.cartService.addToCart(product);
-        this.cartService.currentCart.subscribe((item) => {
-            console.log('item product', item);
-        });
     }
 }

@@ -72,6 +72,7 @@
                 routerLinkActive="router-link-active"
                 icon="pi pi-check"
                 (click)="showCart = false"
+                [disabled]="!userData"
             ></p-button>
         </div>
     </ng-template>

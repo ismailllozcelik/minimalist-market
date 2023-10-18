@@ -18,6 +18,7 @@ import { OrderListModule } from 'primeng/orderlist';
 import { DataViewModule } from 'primeng/dataview';
 import { PickListModule } from 'primeng/picklist';
 import { EllipsisPipe } from './pipes/ellipsis.pipe';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
     imports: [
@@ -32,6 +33,7 @@ import { EllipsisPipe } from './pipes/ellipsis.pipe';
         RatingModule,
         ButtonModule,
         AsyncPipe,
+        TooltipModule,
     ],
     declarations: [ProductComponent, EllipsisPipe],
 })

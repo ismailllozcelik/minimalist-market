@@ -84,7 +84,16 @@
                                 >
                                 <p-button
                                     icon="pi pi-shopping-cart"
-                                    (click)="addToCart(product)"
+                                    [disabled]="!userData"
+                                    [pTooltip]="
+                                        !userData
+                                            ? 'Please login to add to cart'
+                                            : ''
+                                    "
+                                    (click)="
+                                        addToCart(product);
+                                        $event.stopPropagation()
+                                    "
                                 ></p-button>
                             </div>
                         </div>
@@ -140,6 +149,12 @@
                                 >
                                 <p-button
                                     icon="pi pi-shopping-cart"
+                                    [disabled]="!userData"
+                                    [pTooltip]="
+                                        !userData
+                                            ? 'Please login to add to cart'
+                                            : ''
+                                    "
                                     (click)="addToCart(product)"
                                 ></p-button>
                             </div>

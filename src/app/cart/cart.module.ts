@@ -19,6 +19,9 @@ import { DataViewModule } from 'primeng/dataview';
 import { PickListModule } from 'primeng/picklist';
 import { SidebarModule } from 'primeng/sidebar';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { ProductItemComponent } from './components/product-item/product-item.component';
+import { TotalPricePipe } from './pipes/total-price.pipe';
+import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 
 @NgModule({
     imports: [
@@ -36,6 +39,11 @@ import { InputNumberModule } from 'primeng/inputnumber';
         SidebarModule,
         InputNumberModule,
     ],
-    declarations: [CartComponent],
+    declarations: [
+        CartComponent,
+        ProductItemComponent,
+        TotalPricePipe,
+        OrderSummaryComponent,
+    ],
 })
 export class CartModule {}

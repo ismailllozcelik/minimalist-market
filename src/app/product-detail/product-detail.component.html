@@ -10,7 +10,7 @@
                             class="text-500 no-underline line-height-3 cursor-pointer"
                             routerLink="/products"
                             routerLinkActive="router-link-active"
-                            >Home</a
+                            >Best Selling Products</a
                         >
                     </li>
                     <li class="px-2">
@@ -65,24 +65,16 @@
                                 <p class="mt-0 mb-4 text-700 line-height-3">
                                     {{ product.description }}
                                 </p>
-
-                                <!-- <button
-                                    pButton
-                                    pRipple
-                                    type="button"
-                                    icon="pi pi-shopping-cart"
-                                    class="p-button-rounded p-button-primary p-button-outlined"
-                                ></button>
-                                <button
-                                    pButton
-                                    pRipple
-                                    type="button"
-                                    icon="pi pi-shopping-cart"
-                                    class="p-button-rounded p-button-success p-button-outlined"
-                                ></button> -->
                                 <p-button
                                     label="Sepete Ekle"
                                     icon="pi pi-shopping-cart"
+                                    [disabled]="!userData"
+                                    [pTooltip]="
+                                        !userData
+                                            ? 'Please login to add to cart'
+                                            : ''
+                                    "
+                                    (click)="addToCart(product)"
                                 ></p-button>
                             </section>
                         </div>

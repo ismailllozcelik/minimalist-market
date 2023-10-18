@@ -30,22 +30,7 @@ export class CartComponent implements OnInit {
 
     ngOnInit() {
         this.cartService.currentCart.subscribe((products) => {
-            console.log('item', products);
             this.myCartList = products;
         });
-    }
-
-    increment(product: Product) {
-        product.quantity++;
-        this.cartService.updateQuantity(product, product.quantity);
-    }
-
-    decrement(product: Product) {
-        if (product.quantity > 0) product.quantity--;
-        this.cartService.updateQuantity(product, product.quantity);
-    }
-
-    removeProduct(product: Product) {
-        this.cartService.removeFromCart(product);
     }
 }

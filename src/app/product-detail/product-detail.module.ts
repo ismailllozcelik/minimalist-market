@@ -21,6 +21,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { HotDetalComponent } from './components/hot-deal.component';
 import { ImageModule } from 'primeng/image';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
     imports: [
@@ -32,6 +33,7 @@ import { ImageModule } from 'primeng/image';
         ButtonModule,
         RatingModule,
         ImageModule,
+        TooltipModule,
     ],
     declarations: [ProductDetailComponent, HotDetalComponent],
 })
