@@ -7,16 +7,16 @@ import {
 } from '@angular/core';
 import { Customer, Representative } from 'src/app/demo/api/customer';
 import { CustomerService } from 'src/app/demo/service/customer.service';
-import { Product } from 'src/app/demo/api/product';
 import { Table } from 'primeng/table';
 import { MessageService, ConfirmationService } from 'primeng/api';
 import { SelectItem } from 'primeng/api';
 import { DataView } from 'primeng/dataview';
 import { AsyncPipe } from '@angular/common';
-import { Product as pd } from './models/product.model';
+import { Product } from './models/product.model';
 import { Observable, scheduled, asyncScheduler, map } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from './services/product.service';
+import { CartStoreService } from '../store/cart-store.service';
 
 @Component({
     templateUrl: './products.component.html',
@@ -31,9 +31,10 @@ import { ProductService } from './services/product.service';
     providers: [MessageService, ConfirmationService, ProductService],
 })
 export class ProductComponent implements OnInit {
-    products$: Observable<pd[] | null> = scheduled([], asyncScheduler);
+    products$: Observable<Product[] | null> = scheduled([], asyncScheduler);
     private readonly route: ActivatedRoute = inject(ActivatedRoute);
     private readonly router = inject(Router);
+    private cartService = inject(CartStoreService);
 
     sortOptions: SelectItem[] = [];
 
@@ -76,5 +77,12 @@ export class ProductComponent implements OnInit {
 
     showDetailProduct(product: Product) {
         this.router.navigate(['/product', product.id]);
+    }
+
+    addToCart(product: Product) {
+        this.cartService.addToCart(product);
+        this.cartService.currentCart.subscribe((item) => {
+            console.log('item product', item);
+        });
     }
 }

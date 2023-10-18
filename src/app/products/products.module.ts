@@ -32,8 +32,7 @@ import { EllipsisPipe } from './pipes/ellipsis.pipe';
         RatingModule,
         ButtonModule,
         AsyncPipe,
-        EllipsisPipe,
     ],
-    declarations: [ProductComponent],
+    declarations: [ProductComponent, EllipsisPipe],
 })
 export class ProductsModule {}

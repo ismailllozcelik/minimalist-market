@@ -1,147 +1,47 @@
 <div class="grid">
     <div class="col-12">
         <div class="card">
-            <h5>Best Selling Products</h5>
-            <p-dataView
-                #dv
-                [value]="products$ | async"
-                [rows]="9"
-                filterBy="name"
-                [sortField]="sortField"
-                [sortOrder]="sortOrder"
-                layout="grid"
-            >
-                <ng-template pTemplate="header">
+            <h5>
+                My Cart ({{ myCartList?.length }}
+                {{ myCartList?.length > 1 ? "Products" : "Product" }})
+            </h5>
+
+            <ng-container *ngIf="myCartList?.length">
+                <div class="flex flex-column">
                     <div
-                        class="flex flex-column md:flex-row md:justify-content-between gap-2"
+                        class="flex flex-row justify-content-between"
+                        *ngFor="let item of myCartList"
                     >
-                        <p-dropdown
-                            [options]="sortOptions"
-                            placeholder="Sort By Price"
-                            (onChange)="onSortChange($event)"
-                        ></p-dropdown>
-                        <span class="p-input-icon-left">
-                            <i class="pi pi-search"></i>
-                            <input
-                                type="search"
-                                pInputText
-                                placeholder="Search by Name"
-                                (input)="onFilter(dv, $event)"
+                        <div class="flex flex-row">
+                            <img
+                                class="img-fluid"
+                                [src]="item?.image"
+                                [alt]="item?.name"
                             />
-                        </span>
-                        <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
-                    </div>
-                </ng-template>
-
-                <ng-template let-product pTemplate="listItem">
-                    <div class="col-12">
-                        <div
-                            class="flex flex-column md:flex-row align-items-center p-3 w-full cursor-pointer"
-                            (click)="showDetailProduct(product)"
-                        >
-                            <div>
-                                <img
-                                    [src]="product.image"
-                                    [alt]="product.name"
-                                    class="my-4 md:my-0 w-9 h-9 md:w-10rem mr-5 product-image"
-                                />
-                            </div>
-                            <div
-                                class="flex-1 flex flex-column align-items-center text-center md:text-left"
-                            >
-                                <div class="font-bold text-2xl">
-                                    {{ product.title }}
-                                </div>
-                                <!-- <div class="mb-2">
-                                    {{ product.description }}
-                                </div> -->
-                                <p-rating
-                                    [ngModel]="product.rating.rate"
-                                    [readonly]="true"
-                                    [cancel]="false"
-                                    styleClass="mb-2"
-                                ></p-rating>
-                                <div class="flex align-items-center mt-2">
-                                    <i class="pi pi-tag mr-2"></i>
-                                    <span class="font-semibold">{{
-                                        product.category
-                                    }}</span>
-                                </div>
-                            </div>
-                            <div
-                                class="flex flex-row md:flex-column justify-content-between w-full md:w-auto align-items-center md:align-items-end mt-5 md:mt-0"
-                            >
-                                <span
-                                    class="text-2xl font-semibold mb-2 align-self-center md:align-self-end"
-                                    >${{ product.price }}</span
-                                >
-                                <button
-                                    pButton
-                                    pRipple
-                                    type="button"
-                                    icon="pi pi-shopping-cart"
-                                    class="p-button-rounded p-button-success p-button-outlined"
-                                ></button>
+                            <div class="flex flex-column">
+                                <span>{{ item?.name }}</span>
+                                <span>{{ item?.price | currency }}</span>
                             </div>
                         </div>
-                    </div>
-                </ng-template>
-
-                <ng-template let-product pTemplate="gridItem">
-                    <div class="col-12 md:col-4">
-                        <div class="card m-3 border-1 surface-border">
-                            <div
-                                class="flex flex-wrap gap-2 align-items-center justify-content-between mb-2"
+                        <div class="flex flex-row">
+                            <button
+                                class="btn btn-sm btn-outline-danger"
+                                (click)="removeFromCart(item)"
                             >
-                                <div class="flex align-items-center">
-                                    <i class="pi pi-tag mr-2"></i>
-                                    <span class="font-semibold">{{
-                                        product.category
-                                    }}</span>
-                                </div>
-                            </div>
-                            <div
-                                class="flex flex-column align-items-center text-center mb-3 cursor-pointer"
-                                (click)="showDetailProduct(product)"
-                            >
-                                <div>
-                                    <img
-                                        [src]="product.image"
-                                        [alt]="product.name"
-                                        class="w-9 my-3 mx-0 product-image"
-                                    />
-                                </div>
-
-                                <div class="text-2xl font-bold">
-                                    {{ product.name }}
-                                </div>
-                                <div class="mb-3">
-                                    {{ product.title }}
-                                </div>
-                                <p-rating
-                                    [ngModel]="product.rating.rate"
-                                    [readonly]="true"
-                                    [cancel]="false"
-                                ></p-rating>
-                            </div>
-                            <div
-                                class="flex align-items-center justify-content-between"
-                            >
-                                <span class="text-2xl font-semibold"
-                                    >${{ product.price }}</span
-                                >
-                                <button
-                                    pButton
-                                    pRipple
-                                    type="button"
-                                    icon="pi pi-shopping-cart"
-                                    class="p-button-rounded p-button-success p-button-outlined"
-                                ></button>
-                            </div>
+                                <i class="pi pi-trash"></i>
+                            </button>
                         </div>
                     </div>
-                </ng-template>
-            </p-dataView>
+                    <div class="flex flex-row justify-content-between">
+                        <div class="flex flex-row">
+                            <span>Total</span>
+                        </div>
+                        <div class="flex flex-row">
+                            <span>{{ 12 | currency }}</span>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
         </div>
     </div>
 </div>

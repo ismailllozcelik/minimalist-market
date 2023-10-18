@@ -1,0 +1,20 @@
+<div class="container flex flex-column">
+    <ng-container *ngFor="let item of myCartList">
+        <div class="flex my-2 p-2 align-items-center">
+            <img
+                [src]="item.image"
+                [alt]="item.name"
+                class="mr-4"
+                style="max-width: 50px"
+            />
+            <div class="flex flex-column">
+                <span class="font-bold">
+                    {{ item.title }}
+                </span>
+                <div>Quantity :{{ item.quantity }}</div>
+                <div class="text-primary font-bold">$ {{ item.price }}</div>
+            </div>
+        </div>
+        <hr class="w-full" />
+    </ng-container>
+</div>

@@ -41,12 +41,34 @@
         </button>
 
         <a class="p-link layout-topbar-button" (click)="showCart = !showCart">
-            <i class="pi pi-shopping-cart text-2xl" pBadge value="2"></i>
-            <span>Cart</span>
+            <i
+                class="pi pi-shopping-cart text-2xl"
+                pBadge
+                [value]="basketCount"
+            ></i>
+            <span>My Cart</span>
         </a>
     </div>
 </div>
 
-<p-sidebar [(visible)]="showCart" position="right" [baseZIndex]="10000">
-    <summary-cart></summary-cart>
+<p-sidebar
+    [(visible)]="showCart"
+    position="right"
+    [baseZIndex]="10000"
+    styleClass="w-30rem"
+>
+    <ng-template pTemplate="header"><h3>My Cart</h3></ng-template>
+    <ng-template pTemplate="content">
+        <summary-cart></summary-cart
+    ></ng-template>
+    <ng-template pTemplate="footer">
+        <div class="flex justify-content-center">
+            <p-button
+                label="Go to Cart"
+                routerLink="/cart"
+                routerLinkActive="router-link-active"
+                icon="pi pi-check"
+            ></p-button>
+        </div>
+    </ng-template>
 </p-sidebar>

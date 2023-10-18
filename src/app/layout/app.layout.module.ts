@@ -18,6 +18,10 @@ import { AppConfigModule } from './config/config.module';
 import { AppSidebarComponent } from './app.sidebar.component';
 import { AppLayoutComponent } from './app.layout.component';
 import { SummaryCartComponent } from './summary-cart.component';
+import { TableModule } from 'primeng/table';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { ButtonModule } from 'primeng/button';
+import { EllipsisNewPipe } from '../shared/pipes/ellipsis.pipe';
 
 @NgModule({
     declarations: [
@@ -28,6 +32,7 @@ import { SummaryCartComponent } from './summary-cart.component';
         AppSidebarComponent,
         AppLayoutComponent,
         SummaryCartComponent,
+        EllipsisNewPipe,
     ],
     imports: [
         BrowserModule,
@@ -42,6 +47,9 @@ import { SummaryCartComponent } from './summary-cart.component';
         RippleModule,
         RouterModule,
         AppConfigModule,
+        TableModule,
+        InputNumberModule,
+        ButtonModule,
     ],
     exports: [AppLayoutComponent],
 })

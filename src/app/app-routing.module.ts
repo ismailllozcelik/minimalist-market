@@ -33,6 +33,13 @@ import { AppLayoutComponent } from './layout/app.layout.component';
                                 ).then((m) => m.ProductDetailModule),
                         },
                         {
+                            path: 'cart',
+                            loadChildren: () =>
+                                import('./cart/cart.module').then(
+                                    (m) => m.CartModule
+                                ),
+                        },
+                        {
                             path: 'uikit',
                             loadChildren: () =>
                                 import(

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from './cart.component';
-import { ProductRoutingModule } from './cart-routing.module';
+import { CartRoutingModule } from './cart-routing.module';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -17,14 +17,13 @@ import { RatingModule } from 'primeng/rating';
 import { OrderListModule } from 'primeng/orderlist';
 import { DataViewModule } from 'primeng/dataview';
 import { PickListModule } from 'primeng/picklist';
-import { EllipsisPipe } from './pipes/ellipsis.pipe';
 import { SidebarModule } from 'primeng/sidebar';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
-        ProductRoutingModule,
+        CartRoutingModule,
         DataViewModule,
         PickListModule,
         OrderListModule,
@@ -33,7 +32,6 @@ import { SidebarModule } from 'primeng/sidebar';
         RatingModule,
         ButtonModule,
         AsyncPipe,
-        EllipsisPipe,
         SidebarModule,
     ],
     declarations: [CartComponent],
