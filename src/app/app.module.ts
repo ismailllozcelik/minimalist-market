@@ -12,6 +12,7 @@ import { IconService } from './demo/service/icon.service';
 import { NodeService } from './demo/service/node.service';
 import { PhotoService } from './demo/service/photo.service';
 import { CartStoreService } from './store/cart-store.service';
+import { UserService } from './store/user.service';
 
 @NgModule({
     declarations: [AppComponent, NotfoundComponent],
@@ -19,6 +20,7 @@ import { CartStoreService } from './store/cart-store.service';
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         CartStoreService,
+        UserService,
         CountryService,
         CustomerService,
         EventService,

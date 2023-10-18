@@ -35,9 +35,12 @@
                 layoutService.state.profileSidebarVisible
         }"
     >
-        <button class="p-link layout-topbar-button">
+        <button
+            class="p-link layout-topbar-button"
+            [routerLink]="userData ? '/products' : '/auth/login'"
+        >
             <i class="pi pi-user"></i>
-            <span>Login</span>
+            <span>{{ userData ? userData.name : "Login" }}</span>
         </button>
 
         <a class="p-link layout-topbar-button" (click)="showCart = !showCart">
