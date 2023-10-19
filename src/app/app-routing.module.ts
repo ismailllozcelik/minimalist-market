@@ -38,8 +38,8 @@ import { AppLayoutComponent } from './layout/app.layout.component';
                     loadChildren: () =>
                         import('./auth/auth.module').then((m) => m.AuthModule),
                 },
-
-                { path: '**', redirectTo: '/products' },
+                { path: '', redirectTo: '/products', pathMatch: 'full' },
+                { path: '**', redirectTo: '/products', pathMatch: 'full' },
             ],
             {
                 scrollPositionRestoration: 'enabled',
