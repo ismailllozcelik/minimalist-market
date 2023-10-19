@@ -31,6 +31,11 @@ import { AppLayoutComponent } from './layout/app.layout.component';
                                     (m) => m.CartModule
                                 ),
                         },
+                        {
+                            path: '',
+                            redirectTo: '/products',
+                            pathMatch: 'full',
+                        },
                     ],
                 },
                 {
@@ -38,7 +43,6 @@ import { AppLayoutComponent } from './layout/app.layout.component';
                     loadChildren: () =>
                         import('./auth/auth.module').then((m) => m.AuthModule),
                 },
-                { path: '', redirectTo: '/products', pathMatch: 'full' },
                 { path: '**', redirectTo: '/products', pathMatch: 'full' },
             ],
             {
