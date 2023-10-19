@@ -5,21 +5,19 @@
                 <breadcrumb currentPageName="Product Detail"></breadcrumb>
 
                 <hot-deal></hot-deal>
-
                 <ng-container *ngIf="product$ | async as product">
                     <div
-                        class="flex md:flex-row flex-column justify-content-between align-items-center text-800"
+                        class="flex md:flex-row flex-column justify-content-start align-items-center text-800"
                     >
-                        <div class="col-12 md:col-6">
+                        <div class="col-12 md:col-3">
                             <img
                                 [src]="product.image"
                                 [alt]="product.name"
-                                class="w-8 my-3 mx-0 product-image"
-                                style="max-height: 400px; min-height: 100px"
+                                class="min-w-10rem max-w-20rem w-m my-3 mx-0 product-image"
                             />
                         </div>
                         <div
-                            class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center"
+                            class="col-12 md:col-9 p-6 text-center md:text-left flex align-items-center"
                         >
                             <section>
                                 <span class="block text-2xl font-bold mb-1">{{

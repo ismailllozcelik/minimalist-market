@@ -43,7 +43,7 @@
                                 <img
                                     [src]="product.image"
                                     [alt]="product.title"
-                                    class="my-4 md:my-0 w-9 h-9 md:w-10rem mr-5 product-image"
+                                    class="my-4 md:my-0 max-h-3rem md:max-w-10rem lg:max-w-full mr-5 product-image"
                                 />
                             </div>
                             <div
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                 </ng-template>
-
+                <!-- max-w-10rem min-w-6rem -->
                 <ng-template let-product pTemplate="gridItem">
                     <div class="col-12 md:col-4">
                         <div class="card m-3 border-1 surface-border">
@@ -121,7 +121,7 @@
                                     <img
                                         [src]="product.image"
                                         [alt]="product.title"
-                                        class="w-8 my-3 mx-0 product-image"
+                                        class="max-h-3rem md:max-w-10rem lg:max-w-full my-3 mx-0 product-image"
                                     />
                                 </div>
 
